@@ -8,7 +8,7 @@ source="/usr/share/gnome-shell/theme/Yaru/gnome-shell-theme.gresource"
 else
 echo "
 ----------------------------------------
-Sorry, Script is only for Ubuntu 20.04
+Sorry, this script only works with Ubuntu 20.04.
 Exiting...
 ----------------------------------------"
 exit 1
@@ -19,8 +19,8 @@ if [ "$pkg" == "no" ]
 then
 echo "
 -----------------------------------------------------------------------------------------------------
-Sorry, the package 'libglib2.0-dev' is not installed. Install the package and then run this Script.
-For now, Exiting...
+Sorry, the package 'libglib2.0-dev' is not installed. Please install it (-> sudo apt install -y libglib2.0-dev) and run this script again.
+Exiting...
 -----------------------------------------------------------------------------------------------------"
 exit 1
 fi
@@ -33,18 +33,16 @@ case "$1" in ###################################################################
 
 if [ "$UID" != "0" ]
 then
-echo "This Script must be run with sudo"
+echo "This script must be run with sudo."
 exit 1
 fi
 
 echo "
 -------------------------------------------------------------------------------------------------------
-Please note that after setting login screen background,
-Reboot is highly recomonded to see the changes If you running this script for the first time.
 
->>>>>>>>>Next time onwards logout will show you the changed background, No need of Reboot.<<<<<<<<<<<<
+>>>>>>>>>Don't forget to reboot or re-login for the changes to take effect.<<<<<<<<<<<<
 
-Do you want to proceed now? [Yes/no] Type n to exit, or press enter to proceed.
+Continue (y/n)? (Type 'n' to exit, or press 'y' to proceed.)
 -------------------------------------------------------------------------------------------------------"
 read answer
 
@@ -55,46 +53,47 @@ exit 1
 fi
 
 echo "
-Please Choose any one number from below.
+Please choose what you'd like to use as a background:
 -----------------------------------------
-1. for Image		2. for Color
+1. Image		2. Color
 -----------------------------------------"
 read a
 
 if [ -z $a ]
 then
-echo "Option is not selected.
+echo "No option selected.
 Exiting..."
 exit 1
 fi
 
 if [ "$a" == "1" ]
 then
-echo "Enter Image Path for Login Screen
+echo "Enter path of background image (to be displayed on login screen)
 ----------------------------------------------------
-Example1: /usr/share/backgrounds/2.jpg
-Example2: /usr/local/share/backgrounds/spaceship.png
-Example3: /home/focal/Downloads/myBG.jpeg
+Example 1: /usr/share/backgrounds/2.jpg
+Example 2: /usr/local/share/backgrounds/spaceship.png
+Example 3: /home/focal/Downloads/myBG.jpeg
 ----------------------------------------------------"
 read b
 
 elif [ "$a" == "2" ]
 then
 echo "
-Enter Hex Color Code for Login Screen (you may note down colors of your choice from this link https://www.color-hex.com/)
+Enter hex color code (to be used as background color of login screen, you can pick ones here: https://www.color-hex.com/)
 -------------------------------------------------------------------------------------------------------------------------
-Example1: #00ff00
-Example2: #fca
-Example3: #456789
-Example4: #123
-Example5: #FF00FF
+Example 1: #00ff00 (lime green)
+Example 2: #ffccaa (light orange)
+Example 3: #456789 (light blue)
+Example 4: #112233 (dark blue)
+Example 5: #FF00FF (pink)
+Example 6: #000000 (black)
 -------------------------------------------------------------------------------------------------------------------------"
 read c
 fi
 
 if [ -z $b ] && [ -z $c ]
 then
-echo "Input is not Provided.
+echo "No input provided.
 Exiting..."
 exit 1
 fi
@@ -111,7 +110,7 @@ then
     	if ! [[ $c =~ ^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$ ]]; then
     	echo "
 ------------------------------------------------------------------------------------------------------------
-    	Sorry it is not a valid Hex color, Please choose the valid HEX color first and then run this script.
+    	Sorry, that's not a valid hex color. Please choose a valid hex color, then run this script again.
 ------------------------------------------------------------------------------------------------------------"
     	exit 1
     	fi
@@ -122,8 +121,8 @@ then
 	if ! [ -e $b ]; then
 	echo "
 ---------------------------------------------------------------------------------------------------
-Image path you entered does not exist, script defined background color is going to be used for now.
-Please notedown the correct file path of the Image and then run this script.
+Image does not exist or path to image is incorrect, script-defined background color is going to be used for now.
+Please write down the correct path of the image and then run this script again.
 ---------------------------------------------------------------------------------------------------"
 	fi
 fi
@@ -223,7 +222,7 @@ echo "
 else
 echo "
 -----------------------------------------------------------------------------
-No need, Already Reset. (or unlikely background is not set using this Script.)
+No need, already reset. (Or unlikely background is not set using this script.)
 -----------------------------------------------------------------------------"
 exit 1
 fi
@@ -231,6 +230,7 @@ fi
 ############################################################################################
 *) #########################################################################################
 ############################################################################################
-echo "Use the parameter '--set' or '--reset'; example: 'focalgdm3.sh --set' or 'focalgdm3.sh --reset'"
+echo "Use with parameters '--set' or '--reset'; 
+Examples: 'focalgdm3.sh --set' or 'focalgdm3.sh --reset'"
 exit 1
 esac
