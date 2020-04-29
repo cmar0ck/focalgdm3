@@ -55,7 +55,7 @@ exit 1
 fi
 
 echo "
-Plesae Choose any one number from below.
+Please Choose any one number from below.
 -----------------------------------------
 1. for Image		2. for Color
 -----------------------------------------"
@@ -108,7 +108,7 @@ fi
 
 if ! [ -z $c ]
 then
-    	if ! [[ $c =~ ^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$ ]]; then 
+    	if ! [[ $c =~ ^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$ ]]; then
     	echo "
 ------------------------------------------------------------------------------------------------------------
     	Sorry it is not a valid Hex color, Please choose the valid HEX color first and then run this script.
@@ -121,12 +121,12 @@ if ! [ -z $b ]
 then
 	if ! [ -e $b ]; then
 	echo "
----------------------------------------------------------------------------------------------------	
+---------------------------------------------------------------------------------------------------
 Image path you entered does not exist, script defined background color is going to be used for now.
 Please notedown the correct file path of the Image and then run this script.
 ---------------------------------------------------------------------------------------------------"
 	fi
-fi	
+fi
 
 source="/usr/share/gnome-shell/theme/Yaru/gnome-shell-theme.gresource"
 prefix="/org/gnome/shell/theme"
@@ -161,7 +161,7 @@ echo '@import url("resource:///org/gnome/shell/theme/original.css");
   background-repeat: no-repeat;
   background-size: cover;;
   background-position: center; }' > $dest/gdm3.css
-  
+
 echo '<?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/shell/theme">
