@@ -39,6 +39,11 @@ fi
 
 echo "
 -------------------------------------------------------------------------------------------------------
+				###############################
+				#           FOCALGDM3         #
+				###############################
+
+This script allows you to change the background color or background image of Ubuntu 20.04's login screen
 
 >>>>>>>>>Don't forget to reboot or re-login for the changes to take effect.<<<<<<<<<<<<
 
@@ -120,10 +125,10 @@ if ! [ -z $b ]
 then
 	if ! [ -e $b ]; then
 	echo "
----------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
 Image does not exist or path to image is incorrect, script-defined background color is going to be used for now.
 Please write down the correct path of the image and then run this script again.
----------------------------------------------------------------------------------------------------"
+------------------------------------------------------------------------------------------------------------"
 	fi
 fi
 
