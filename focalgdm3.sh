@@ -2,13 +2,13 @@
 
 codename=$(cat /etc/os-release | grep UBUNTU_CODENAME | cut -d = -f 2)
 
-if [ "$codename" == "focal" ] || [ "$codename" == "jammy" ]
+if [ "$codename" == "focal" ]
 then
 source="/usr/share/gnome-shell/theme/Yaru/gnome-shell-theme.gresource"
 else
 echo "
 ----------------------------------------
-Sorry, this script only works with Ubuntu 20.04. and 22.04
+Sorry, this script only works with Ubuntu 20.04.
 Exiting...
 ----------------------------------------"
 exit 1
